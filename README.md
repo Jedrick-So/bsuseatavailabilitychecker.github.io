@@ -2,7 +2,7 @@
 Benguet State University Library Seat Checker
 
 ###############
-# Team BossIT #
+  Team BossIT
 ###############
 
 Members:
