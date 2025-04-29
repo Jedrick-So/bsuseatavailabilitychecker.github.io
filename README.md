@@ -6,9 +6,13 @@ Benguet State University Library Seat Checker
 ###############
 
 Members:
+
 Curiano, Juris* (Admin Log In Page)
+
 Gadit, Kenneth Cyme (Admin UI)
+
 Nucaza, Gabriel Sebastian (User Log In Page)
+
 So, Jedrick (User UI)
 
 
