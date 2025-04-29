@@ -1,0 +1,253 @@
+
+@media (max-width: 600px) {
+  .seat {
+    width: 45px;
+    height: 45px;
+    font-size: 14px;
+  }
+  .logo {
+    width: 70px;
+    height: 70px;
+  }
+  h1, h2 {
+    font-size: 18px;
+  }
+  .section-nav {
+    flex-wrap: nowrap;
+  }
+}
+
+body, head {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  background-color: #0c3f00;
+}
+
+h1, h2 {
+  text-align: center;
+  line-height: 1.4;
+}
+
+h1 {
+  color: #0c3f00;
+  font-size: 24px;
+  margin: 0;
+}
+
+h2 {
+  color: white;
+  font-size: 24px;
+  padding-bottom: 25px;
+}
+.avseat_counter {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #1a8d00;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  margin: 0 20px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 20px;
+  width: 100%;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.title-container {
+  flex: 1;
+  text-align: center;
+}
+
+.seats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5px;
+  gap: 6px;
+}
+
+.seat {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  font-weight: bold;
+  margin: 3px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: antiquewhite;
+  color: #080500;
+  transition: background-color 0.3s ease;
+}
+
+.refresh {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1a8d00;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.section-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: fit-content;
+  flex-wrap: wrap;
+}
+
+.nav-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1a8d00;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.section-name {
+  font-size: 18px;
+  color: white;
+  min-width: 150px;
+  text-align: center;
+}
+
+#seatModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+#content_seatModal {
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.chosen_seat {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+#seatNumber {
+  font-size: 32px;
+}
+
+#seatStatus {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.closeModal {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 15px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reserveBtn, .cancelBtn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reserveBtn {
+  background-color: #1976d2;
+  display: none;
+}
+
+.cancelBtn {
+  background-color: #d32f2f;
+  display: none;
+}
+
+.occupied {
+  background-color: #d32f2f !important;
+  color: white;
+}
+
+.available {
+  background-color: #388e3c !important;
+  color: white;
+}
+
+.reserved {
+  background-color: #1976d2 !important;
+  color: white;
+}
+
+.reservation-message {
+  background-color: #1976d2;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px auto;
+  width: fit-content;
+  display: none;
+  font-weight: bold;
+}
+.leave-button-container {
+  position: absolute;
+  top: 170px;
+  right: 20px;
+  z-index: 100;
+}
+
+.leave-button {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}

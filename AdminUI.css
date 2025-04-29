@@ -1,0 +1,46 @@
+    body { background-color: #0c3f00; font-family: Verdana, sans-serif; margin: 0; padding: 0; }
+    .hidden { display: none; }
+    .login-container { background: white; padding: 40px 30px; border-radius: 15px; box-shadow: 0 0 20px rgba(0,0,0,0.2); width: 100%; max-width: 400px; text-align: center; margin: 100px auto;display: flex;flex-direction: column;align-items: center;}
+    .login-logo {width: 120px;height: 120px;border-radius: 50%;margin-bottom: 20px;}
+    .login-container h1 { color: #0c3f00; margin-bottom: 20px; font-size: 28px;width: 100%;text-align: center;}
+    .login-form {width: 100%;}
+    .login-container input, .login-container button { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px;box-sizing: border-box;font-size: 16px;}
+    .login-container input {border: 1px solid #ccc;outline: none;}
+    .login-container input:focus {border-color: #1a8d00;box-shadow: 0 0 5px rgba(26,141,0,0.3);}
+    .login-container button { background-color: #1a8d00; color: white; border: none; cursor: pointer; font-size: 16px;font-weight: bold;transition: background-color 0.3s ease;margin-top: 20px;}
+    .login-container button:hover { background-color: #146d00; }
+    .login-container p { color: #555; margin-top: 20px; font-size: 14px; }
+    .back-to-user { display: block; width: 100%;max-width: 400px; margin: -75px auto 0; padding: 10px; background-color: #555; color: white; text-align: center; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: bold;}
+    .head { display: flex; align-items: center; justify-content: space-between; background: white; padding: 10px 20px; }
+    .logo { height: 100px; width: 100px; border-radius: 50%; }
+    h1 { color: #0c3f00; font-size: 28px; text-align: center; margin: 0; line-height: 1.3; }
+    h2 { color: white; text-align: center; font-size: 24px; margin: 30px 0 10px; }
+    .controls-wrapper { display: flex; align-items: center; justify-content: flex-end; padding: 10px 20px; }
+    .control-item { margin-left: 20px; font-size: 30px; color: white; cursor: pointer; position: relative; }
+    .count { position: absolute; top: -10px; right: -15px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; }
+    .dropdown-menu { position: absolute; top: 40px; right: 0; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.2); width: 150px; z-index: 1000; display: none; }
+    .dropdown-menu.active { display: block; }
+    .dropdown-item { padding: 12px 15px; color: #0c3f00; font-size: 16px; cursor: pointer; display: block; text-decoration: none; }
+    .dropdown-item:hover { background-color: #f0f0f0; }
+    .seats { text-align: center; margin: 10px; }
+    .seat { display: inline-block; width: 60px; height: 60px; margin: 5px; border-radius: 50%; text-align: center; line-height: 60px; font-weight: bold; background: green; color: white; cursor: pointer; }
+    .occupied { background: red !important; }
+    .refresh-container { display: flex; justify-content: center; margin: 20px 0; }
+    .refresh { padding: 12px 30px; font-size: 18px; background: #1a8d00; color: white; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: all 0.3s ease; }
+    .refresh:hover { background: #146d00; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.3); }
+    .nav-button { margin: 20px auto; padding: 10px 20px; font-size: 16px; background: #1a8d00; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .section-nav { display: flex; align-items: center; justify-content: center; margin: 20px; }
+    .section-name { font-size: 18px; color: white; min-width: 150px; text-align: center; }
+    .request-box { background: white; color: black; margin: 20px auto; padding: 15px; max-width: 500px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2); display: none; }
+    .request-box.active { display: block; }
+    .request-box h3 { margin-top: 0; color: #0c3f00; }
+    .req-btn { margin: 5px; padding: 8px 12px; font-size: 14px; cursor: pointer; border: none; border-radius: 5px; }
+    .approve, .yes { background: green; color: white; }
+    .decline, .no { background: red; color: white; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 9999; }
+    .modal-content { background: white; padding: 30px; border-radius: 10px; text-align: center; max-width: 300px; width: 90%; }
+    .modal h3 { margin-bottom: 20px; color: #0c3f00; }
+    .modal p { margin-bottom: 15px; }
+    .modal button { margin: 10px; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .profile-info { margin: 15px 0; text-align: left; }
+    .profile-info p { margin: 5px 0; }

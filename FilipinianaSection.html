@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="userstyles.css">
+  <title>Seat Checker</title>
+</head>
+<body>
+
+  <div id="seatModal">
+    <div id="content_seatModal">
+      <h2 class="chosen_seat">You have chosen:</h2>
+      <h2 id="seatNumber">Seat #</h2>
+      <p id="seatStatus">Occupied</p>
+      <button class="closeModal" onclick="closeModal()">Back</button>
+      <button id="reserveButton" class="reserveBtn" onclick="reserveSeat()">Reserve</button>
+      <button id="cancelButton" class="cancelBtn" onclick="cancelReservation()">Cancel Reservation</button>
+    </div>
+  </div>
+
+  <div class="leave-button-container">
+    <a href="index.html">
+      <button class="leave-button">Leave</button>
+    </a>
+  </div>
+  
+  <div class="head">
+    <img src="https://i.ibb.co/Rkb9xN0d/2.png" class="logo">
+    <div class="title-container">
+      <h1>Benguet State University Library<br>Seat Availability Checker</h1>
+    </div>
+    <img src="https://i.ibb.co/4gC5jRLs/426164029_774692088028248_9063923546807423123-n.jpg" class="logo">
+  </div>
+  <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+    <div class="avseat_counter">Available Seats: <span id="availableCount">30</span></div>
+    <div id="reservationMessage" class="reservation-message">You already have a reservation!</div>
+  </div>
+    <div id="seat-container">
+        <div class="seats">
+            <a href="#" class="seat">1</a>
+            <a href="#" class="seat">7</a>
+            <a href="#" class="seat">13</a>
+            <a href="#" class="seat">19</a>
+            <a href="#" class="seat">25</a>
+            <a href="#" class="seat">31</a>
+        </div>
+        <div class="seats">
+            <a href="#" class="seat">2</a>
+            <a href="#" class="seat">8</a>
+            <a href="#" class="seat">14</a>
+            <a href="#" class="seat">20</a>
+            <a href="#" class="seat">26</a>
+            <a href="#" class="seat">32</a>
+        </div>
+        <div class="seats">
+            <a href="#" class="seat">3</a>
+            <a href="#" class="seat">9</a>
+            <a href="#" class="seat">15</a>
+            <a href="#" class="seat">21</a>
+            <a href="#" class="seat">27</a>
+            <a href="#" class="seat">33</a>
+        </div>
+        <div class="seats">
+            <a href="#" class="seat">4</a>
+            <a href="#" class="seat">10</a>
+            <a href="#" class="seat">16</a>
+            <a href="#" class="seat">22</a>
+            <a href="#" class="seat">28</a>
+            <a href="#" class="seat">34</a>
+        </div>
+        <div class="seats">
+            <a href="#" class="seat">5</a>
+            <a href="#" class="seat">11</a>
+            <a href="#" class="seat">17</a>
+            <a href="#" class="seat">23</a>
+            <a href="#" class="seat">29</a>
+            <a href="#" class="seat">35</a>
+        </div>
+        <div class="seats">
+            <a href="#" class="seat">6</a>
+            <a href="#" class="seat">12</a>
+            <a href="#" class="seat">18</a>
+            <a href="#" class="seat">24</a>
+            <a href="#" class="seat">30</a>
+            <a href="#" class="seat">36</a>
+        </div>
+    </div>
+  </div>
+
+  <button class="refresh" onclick="location.reload()">Refresh</button>
+  <div class="section-nav">
+    <a href="SerialsSection.html"><button class="nav-button" id="left-btn" >&larr;</button></a>
+    <div class="section-name" id="section-name">Filipiniana</div>
+    <a href="SerialsSection.html"><button class="nav-button" id="right-btn">&rarr;</button></a>
+  </div>
+
+  <script>
+    const occupiedSeats = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 20, 22, 25, 30, 31, 32, 33, 34, 36];
+    const reservedSeats = [];
+    let userReservedSeat = null;
+    
+    function updateAvailableCount() {
+      const totalSeats = 36;
+      const availableCount = totalSeats - occupiedSeats.length - reservedSeats.length;
+      document.getElementById('availableCount').innerText = availableCount;
+    }
+
+    function openModal(seatNumber) {
+      const modal = document.getElementById('seatModal');
+      const modalContent = document.getElementById('content_seatModal');
+      const seatNumElem = document.getElementById('seatNumber');
+      const seatStatusElem = document.getElementById('seatStatus');
+      const reserveBtn = document.getElementById('reserveButton');
+      const cancelBtn = document.getElementById('cancelButton');
+      const seatNum = parseInt(seatNumber);
+
+      seatNumElem.innerText = 'Seat #' + seatNum;
+      
+      reserveBtn.style.display = 'none';
+      cancelBtn.style.display = 'none';
+
+      if (occupiedSeats.includes(seatNum)) {
+        seatStatusElem.innerText = 'Occupied';
+        modalContent.style.backgroundColor = '#d32f2f';
+      } else if (reservedSeats.includes(seatNum)) {
+        if (seatNum === userReservedSeat) {
+          seatStatusElem.innerText = 'Your Reservation (Pending Approval)';
+          modalContent.style.backgroundColor = '#1976d2';
+          cancelBtn.style.display = 'inline-block';
+          cancelBtn.setAttribute('data-seat', seatNum);
+        } else {
+          seatStatusElem.innerText = 'Reserved by Another User';
+          modalContent.style.backgroundColor = '#1976d2';
+        }
+      } else {
+        seatStatusElem.innerText = 'Available';
+        modalContent.style.backgroundColor = '#388e3c';
+        
+        if (userReservedSeat === null) {
+          reserveBtn.style.display = 'inline-block';
+          reserveBtn.setAttribute('data-seat', seatNum);
+        } else {
+          seatStatusElem.innerText = 'Available (You already have a reservation)';
+        }
+      }
+
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('seatModal').style.display = 'none';
+    }
+
+    function reserveSeat() {
+      if (userReservedSeat !== null) {
+        alert('You can only reserve one seat at a time. Please cancel your existing reservation first.');
+        closeModal();
+        return;
+      }
+      
+      const reserveBtn = document.getElementById('reserveButton');
+      const seatNumber = parseInt(reserveBtn.getAttribute('data-seat'));
+      
+      reservedSeats.push(seatNumber);
+      
+      userReservedSeat = seatNumber;
+      
+      document.getElementById('reservationMessage').style.display = 'block';
+      
+      const seat = Array.from(document.querySelectorAll('.seat')).find(s => s.textContent.trim() == seatNumber);
+      seat.classList.remove('available');
+      seat.classList.add('reserved');
+      
+      alert(`You have reserved Seat #${seatNumber}! Please wait for admin's confirmation.`);
+      
+      updateAvailableCount();
+      closeModal();
+    }
+    
+    function cancelReservation() {
+      const cancelBtn = document.getElementById('cancelButton');
+      const seatNumber = parseInt(cancelBtn.getAttribute('data-seat'));
+      
+      const index = reservedSeats.indexOf(seatNumber);
+      if (index > -1) {
+        reservedSeats.splice(index, 1);
+      }
+      
+      userReservedSeat = null;
+      
+      document.getElementById('reservationMessage').style.display = 'none';
+      
+      const seat = Array.from(document.querySelectorAll('.seat')).find(s => s.textContent.trim() == seatNumber);
+      seat.classList.remove('reserved');
+      seat.classList.add('available');
+      
+      alert(`Your reservation for Seat #${seatNumber} has been cancelled.`);
+      
+      updateAvailableCount();
+      closeModal();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const seats = document.querySelectorAll('.seat');
+      seats.forEach(seat => {
+        const seatNumber = parseInt(seat.textContent.trim());
+        if (occupiedSeats.includes(seatNumber)) {
+          seat.classList.add('occupied');
+        } else {
+          seat.classList.add('available');
+        }
+
+        seat.addEventListener('click', function (e) {
+          e.preventDefault();
+          openModal(seatNumber);
+        });
+      });
+      
+      updateAvailableCount();
+    });
+  </script>
+</body>
+</html>
