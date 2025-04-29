@@ -1,4 +1,4 @@
-# bsuseatavailabilitychecker.github.io
+# bsuseatavailabilitycheckerTeamBossIT
 Benguet State University Library Seat Checker
 
 ###############
